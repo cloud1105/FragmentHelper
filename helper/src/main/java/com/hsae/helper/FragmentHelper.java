@@ -7,6 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+/**
+ * FragmentHelper
+ *
+ * @author huxinliang
+ * @since 2022/3/29
+ */
 public class FragmentHelper {
 
     private static final String TAG = FragmentHelper.class.getSimpleName();
