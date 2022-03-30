@@ -25,7 +25,7 @@ public class Fragment3 extends Fragment {
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
         helper = new FragmentHelper(this, R.id.frameLayout2);
-        helper.showChildFragment(fragment1);
+        helper.showChild(fragment1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,11 +45,11 @@ public class Fragment3 extends Fragment {
             }
 
             private void hideFragment(Fragment fragment) {
-                helper.hideChildFragment(fragment);
+                helper.hideChild(fragment);
             }
 
             private void replaceFragment(Fragment fragment) {
-                helper.showChildFragment(fragment);
+                helper.showChild(fragment);
             }
         });
         return view;

@@ -25,15 +25,16 @@ public class MainActivity extends AppCompatActivity {
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
         fragment3 = new Fragment3();
-        helper.showFragment(fragment1);
+        helper.show(fragment1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (index) {
                     case 1:
-                        hideFragment(fragment1);
-                        hideFragment(fragment3);
-                        replaceFragment(fragment2);
+//                        hideFragment(fragment1);
+//                        hideFragment(fragment3);
+//                        replaceFragment(fragment2);
+                        helper.hide(fragment1).hide(fragment3).show(fragment2);
                         index++;
                         break;
                     case 2:
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             private void replaceFragment(Fragment fragment) {
-                helper.showFragment(fragment);
+                helper.show(fragment);
             }
         });
     }

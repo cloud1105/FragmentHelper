@@ -50,9 +50,9 @@ public class FragmentHelper {
      * @param targetFragment 需要显示的子Fragment
      * @return this
      */
-    public FragmentHelper showFragment(@NonNull Fragment targetFragment) {
+    public FragmentHelper show(@NonNull Fragment targetFragment) {
         if (currentVisibleFragment == targetFragment) {
-            Log.d(TAG, "showFragment: targetFragment is visible,do not show again");
+            Log.d(TAG, "show: targetFragment is visible,do not show again");
             return this;
         }
         FragmentTransaction transaction = getFragmentTransaction(appCompatActivity);
@@ -70,14 +70,16 @@ public class FragmentHelper {
      * 隐藏Activity的子Fragment
      *
      * @param fragment 隐藏的Fragment
+     * @return this
      */
-    public void hide(@NonNull Fragment fragment) {
+    public FragmentHelper hide(@NonNull Fragment fragment) {
         FragmentTransaction transaction = getFragmentTransaction(appCompatActivity);
         if (fragment.isAdded() && fragment.isVisible()) {
             transaction.hide(fragment);
             Log.d(TAG, " hide fragment: " + fragment.getClass().getSimpleName());
         }
         transaction.commitAllowingStateLoss();
+        return this;
     }
 
     /**
@@ -86,9 +88,9 @@ public class FragmentHelper {
      * @param targetFragment 需要显示的子Fragment
      * @return this
      */
-    public FragmentHelper showChildFragment(@NonNull Fragment targetFragment) {
+    public FragmentHelper showChild(@NonNull Fragment targetFragment) {
         if (currentVisibleFragment == targetFragment) {
-            Log.d(TAG, "showChildFragment: targetFragment is visible,do not show again");
+            Log.d(TAG, "showChild: targetFragment is visible,do not show again");
             return this;
         }
         FragmentTransaction transaction = getFragmentTransaction(fragment);
@@ -106,14 +108,16 @@ public class FragmentHelper {
      * 隐藏Fragment的子Fragment
      *
      * @param fragment 隐藏的Fragment
+     * @return this
      */
-    public void hideChildFragment(@NonNull Fragment fragment) {
+    public FragmentHelper hideChild(@NonNull Fragment fragment) {
         FragmentTransaction transaction = getFragmentTransaction(this.fragment);
         if (fragment.isAdded() && fragment.isVisible()) {
             transaction.hide(fragment);
-            Log.d(TAG, " hideChildFragment fragment: " + fragment.getClass().getSimpleName());
+            Log.d(TAG, " hideChild fragment: " + fragment.getClass().getSimpleName());
         }
         transaction.commitAllowingStateLoss();
+        return this;
     }
 
     private FragmentTransaction getFragmentTransaction(AppCompatActivity activity) {
